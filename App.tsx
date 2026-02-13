@@ -1,45 +1,59 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react';
+import { enableScreens } from 'react-native-screens';
+enableScreens();
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+import SplashScreen from './src/screens/SplashScreen';
+import GetStartedScreen from './src/screens/GetStartedScreen';
+import DashboardScreen from './src/screens/DashboardScreen';
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
+import ProductDetailsScreen from './src/screens/ProductDetailsScreen';
 
+export type RootStackParamsList = {
+  SplashScreen: undefined;
+  GetStartedScreen: undefined;
+  DashboardScreen: undefined;
+  ProductDetailsScreen: { productId: number };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamsList>();
+
+export default function App() {
+  const linking = {
+    prefixes: ['https://io.pixelsoftwares.com', 'io.pixelsoftwares.com'],
+    config: {
+      screens: {
+        SplashScreen: 'splash',
+        GetStartedScreen: 'get-started',
+        ProductDetailsScreen: {
+          path: 'product/:productId',
+          parse: {
+            productId: (productId: string) => parseInt(productId, 10),
+          },
+        },
+        DashboardScreen: '*', // Catch-all: matches any path like /test.txt, /home, etc.
+      },
+    },
+  };
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <NavigationContainer 
+        linking={linking}
+        fallback={<SplashScreen />}
+      >
+        <Stack.Navigator 
+          initialRouteName="SplashScreen"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="GetStartedScreen" component={GetStartedScreen} />
+          <Stack.Screen name="DashboardScreen" component={BottomTabNavigator}/>
+          <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
