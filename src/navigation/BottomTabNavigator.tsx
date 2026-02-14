@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 
 const DummyScreen = ({ name }: any) => (
   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>{name}</Text>
+    <Text style={{fontSize:30,fontWeight:'bold'}}>{name}</Text>
   </View>
 );
 
@@ -40,7 +40,7 @@ export default function BottomTabNavigator() {
           }
 
           if (route.name === 'Bag') {
-            return <Feather name="shopping-bag" size={size} color={color} />;
+            return <MaterialIcons name="shopping-bag" size={size} color={color} />;
           }
 
           if (route.name === 'Profile') {

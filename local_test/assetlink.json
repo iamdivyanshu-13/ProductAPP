@@ -1,0 +1,135 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pixelproduct",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pixeldemo1",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pixeldemo",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.interview.raviinterview",
+      "sha256_cert_fingerprints": [
+        "B5:10:4E:70:BE:7A:AA:AA:E5:97:18:B8:51:49:E3:20:88:93:2E:AC:E7:4C:06:93:98:45:BA:F6:C2:9B:F6:41"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.pixelassignmentnihal",
+      "sha256_cert_fingerprints": [
+        "B1:7E:46:24:54:51:01:63:76:98:BC:8F:46:79:FA:4D:85:38:70:4A:1D:FC:93:49:AC:9E:D5:EB:EB:75:61:C1"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nodxone",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.pixel_task_app",
+      "sha256_cert_fingerprints": [
+        "7F:A1:91:09:44:A7:76:36:FC:EF:56:FE:E9:BF:07:F5:0E:9F:7F:96:1B:A4:E1:06:5B:6F:59:D1:D4:0A:A2:5A"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.furniture_ecom",
+      "sha256_cert_fingerprints": [
+        "66:9F:84:D7:7B:EF:3C:0D:81:FE:F6:D0:57:E4:8B:E4:3B:05:26:C6:55:D2:FD:5F:43:95:ED:AE:7A:E4:5B:1D"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.furniture_app",
+      "sha256_cert_fingerprints": [
+        "D1:69:C3:49:44:5C:D0:2A:EE:FF:0C:65:E1:E0:01:42:95:FD:80:4E:2E:01:55:CF:49:1F:CC:30:DE:5B:49:27"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.interview.furniture",
+      "sha256_cert_fingerprints": [
+        "5B:23:27:B0:3F:47:F1:BE:15:C0:1C:79:A7:CE:8D:2D:36:2B:B6:76:F3:58:E1:AD:CC:00:52:07:E1:05:FC:1D"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.worldfurniture.app",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+        "3F:7C:4E:43:C5:EA:B1:6A:3C:C8:90:1A:5F:6A:B2:3A:23:47:10:5D:0C:57:CD:F8:D2:FB:49:11:64:D7:55:32"
+      ]
+    }
+  }
+]

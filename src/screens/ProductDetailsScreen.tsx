@@ -8,6 +8,7 @@ import {
   Image,
   Dimensions,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 
 import Swiper from 'react-native-swiper';
@@ -135,17 +136,17 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
         </Swiper>
       </View>
       <View style={styles.bottomContainer}>
+        <ScrollView
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{ paddingBottom: 20 }}
+  >
         <View style={styles.row}>
-          <View>
-            <Text style={styles.title}>
-              {product.title.length > 22
-                ? product.title.substring(0, 22) + '...'
-                : product.title}
-            </Text>
+          <View style={{ width: '70%' }}>
+            <Text style={styles.title}>{product.title}</Text>
             <Text style={styles.category}>{product.category}</Text>
           </View>
 
-          <View>
+          <View style={{ width: '30%' }}>
             <Text style={styles.priceLabel}>Price</Text>
 
             <Text style={styles.price}>₱ {product.price}</Text>
@@ -165,9 +166,14 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
         <Text style={styles.descTitle}>Description</Text>
 
         <Text style={styles.description}>{product.description}</Text>
+        </ScrollView>
         <View style={styles.buyRow}>
           <View style={styles.cartIcon}>
-            <Feather name="shopping-bag" size={22} color="#A3B65A" />
+            <MaterialIcons
+              name="shopping-bag"
+              size={30}
+              color="#A3B65A"
+            />
           </View>
 
           <TouchableOpacity style={styles.buyBtn}>
@@ -188,6 +194,7 @@ const styles = StyleSheet.create({
   backBtn: {
     marginTop: 40,
     marginLeft: 15,
+    fontWeight:'bold'
   },
 
   sliderContainer: {
@@ -200,23 +207,25 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: width - 40,
-    height: 220,
+    width: width -5,
+    height: 300,
     resizeMode: 'contain',
   },
 
   dot: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#ffffff',
     width: 8,
     height: 8,
     borderRadius: 4,
   },
 
   activeDot: {
-    backgroundColor: '#A3B65A',
+    backgroundColor: '#AABB5D',
     width: 10,
     height: 10,
     borderRadius: 5,
+    borderColor:'#ffffff',
+    borderWidth:0.5
   },
 
   bottomContainer: {
@@ -234,24 +243,26 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '400',
     color: '#161616',
   },
 
   category: {
     color: '#7A7878',
     marginTop: 4,
-    fontSize: 15,
+    fontSize: 16,
   },
 
   priceLabel: {
     color: '#7A7878',
     fontSize: 16,
+    textAlign: 'right',
   },
 
   price: {
     fontSize: 18,
     fontWeight: 'bold',
+    textAlign: 'right',
   },
 
   qtyRow: {
@@ -290,6 +301,7 @@ const styles = StyleSheet.create({
   description: {
     color: '#514C4C',
     fontSize: 16,
+    fontWeight: 'bold',
   },
 
   buyRow: {
@@ -301,8 +313,8 @@ const styles = StyleSheet.create({
 
   cartIcon: {
     backgroundColor: '#E0E0E0',
-    padding: 14,
-    borderRadius: 18,
+    padding: 10,
+    borderRadius: 20,
     marginRight: 10,
     width: '15%',
   },

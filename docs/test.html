@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open in App</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; text-align: center; }
+    a { display: inline-block; margin: 1rem; padding: 1rem 1.5rem; background: #007AFF; color: #fff; text-decoration: none; border-radius: 8px; }
+    a:hover { opacity: 0.9; }
+    p { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Deep link test</h1>
+  <p>Tap a button below to open the Pixel Product app.</p>
+  <a href="intent://192.168.1.49:5500/test.txt#Intent;scheme=http;package=com.pixelproduct;end">Open in App (Intent)</a>
+  <br />
+  <a href="pixelproduct://192.168.1.49:5500/test.txt">Open in App (pixelproduct://)</a>
+</body>
+</html>

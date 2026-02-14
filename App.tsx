@@ -23,7 +23,13 @@ const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 export default function App() {
   const linking = {
-    prefixes: ['https://io.pixelsoftwares.com', 'io.pixelsoftwares.com'],
+    prefixes: [
+      'https://io.pixelsoftwares.com',
+      'io.pixelsoftwares.com',
+      'http://127.0.0.1:5500',
+      'http://192.168.1.49:5500',
+      'pixelproduct://',
+    ],
     config: {
       screens: {
         SplashScreen: 'splash',

@@ -68,7 +68,6 @@ export default function DashboardScreen() {
       const response = await getProducts();
       setProducts(response?.data?.products);
     } catch (error) {
-      // Error handling - could add error state UI here if needed
     } finally {
       setLoading(false);
     }
@@ -91,6 +90,7 @@ export default function DashboardScreen() {
           isGrid={isGrid}
           onGridPress={toggleGridView}
           onListPress={toggleListView}
+          totalItems={filteredProducts.length}
         />
 
         <FlatList
@@ -99,6 +99,15 @@ export default function DashboardScreen() {
           renderItem={({ item }) => <ProductCard item={item} isGrid={isGrid} />}
           keyExtractor={item => item.id.toString()}
           numColumns={isGrid ? 2 : 1}
+          ListEmptyComponent={
+            !loading && search.length > 0 ? (
+              <View style={styles.emptyContainer}>
+                <Text style={styles.emptyText}>
+                  No product found for "{search}"
+                </Text>
+              </View>
+            ) : null
+          }
         />
       </View>
     </SafeAreaView>
@@ -108,7 +117,7 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F2F5F3',
+    backgroundColor: '#BBC3C3',
   },
 
   container: {
@@ -120,7 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
-    color: '#000',
+    color: '#333131',
   },
 
   list: {
@@ -131,5 +140,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+  },
+
+  emptyText: {
+    fontSize: 16,
+    color: '#666',
+    fontWeight: '500',
   },
 });
