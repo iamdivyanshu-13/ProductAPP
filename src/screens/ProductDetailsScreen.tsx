@@ -21,9 +21,8 @@ const { width } = Dimensions.get('window');
 
 export default function ProductDetailsScreen({ route, navigation }: any) {
   const { productId } = route.params || {};
-  
-  // Ensure productId is a number (deep links pass strings)
-  const productIdNum = typeof productId === 'string' ? parseInt(productId, 10) : productId;
+  const productIdNum =
+    typeof productId === 'string' ? parseInt(productId, 10) : productId;
 
   const [product, setProduct] = useState<any>(null);
   const [quantity, setQuantity] = useState(1);
@@ -38,11 +37,11 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
     try {
       setLoading(true);
       setError(null);
-      
+
       if (!productIdNum || isNaN(productIdNum)) {
         throw new Error(`Invalid product ID: ${productId}`);
       }
-      
+
       const response = await getProductDetails(productIdNum);
 
       if (!response.data || !response.data[0]) {
@@ -68,7 +67,6 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
     }
   };
 
-  // Loading state
   if (loading) {
     return (
       <View style={styles.container}>
@@ -86,7 +84,6 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
     );
   }
 
-  // Error state
   if (error || !product) {
     return (
       <View style={styles.container}>
@@ -123,9 +120,12 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
       </TouchableOpacity>
       <View style={styles.sliderContainer}>
         <Swiper
+          key={product.images?.length}
+          showsPagination={true}
+          loop={false}
           dotStyle={styles.dot}
           activeDotStyle={styles.activeDot}
-          paginationStyle={{ bottom: -20 }}
+          paginationStyle={{ bottom: 10 }}
         >
           {product.images.map((img: string, index: number) => (
             <View key={index} style={styles.slide}>
@@ -159,7 +159,7 @@ export default function ProductDetailsScreen({ route, navigation }: any) {
           <Text style={styles.qtyText}>{quantity}</Text>
 
           <TouchableOpacity style={styles.qtyBtninc} onPress={increaseQty}>
-            <Feather name="plus" size={20} color={'#fff'}/>
+            <Feather name="plus" size={20} color={'#fff'} />
           </TouchableOpacity>
         </View>
         <Text style={styles.descTitle}>Description</Text>
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color:'#161616'
+    color: '#161616',
   },
 
   category: {
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 20,
-    justifyContent:'flex-end'
+    justifyContent: 'flex-end',
   },
 
   qtyBtndec: {
@@ -266,13 +266,12 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     padding: 5,
   },
-    qtyBtninc: {
+  qtyBtninc: {
     borderWidth: 2,
     borderRadius: 6,
-    borderColor:'#5E5A5A',
+    borderColor: '#5E5A5A',
     padding: 5,
-    backgroundColor:'#5E5A5A',
-
+    backgroundColor: '#5E5A5A',
   },
 
   qtyText: {
@@ -285,7 +284,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
     fontSize: 18,
-    color:'#1A1A1A'
+    color: '#1A1A1A',
   },
 
   description: {
@@ -297,7 +296,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
-    width:'100%',
+    width: '100%',
   },
 
   cartIcon: {
@@ -305,7 +304,7 @@ const styles = StyleSheet.create({
     padding: 14,
     borderRadius: 18,
     marginRight: 10,
-    width:'15%'
+    width: '15%',
   },
 
   buyBtn: {
@@ -314,13 +313,13 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     alignItems: 'center',
-    width:'85%'
+    width: '85%',
   },
 
   buyText: {
     fontWeight: 'bold',
     fontSize: 16,
-    color:'#ffff'
+    color: '#ffff',
   },
   centerContainer: {
     flex: 1,
